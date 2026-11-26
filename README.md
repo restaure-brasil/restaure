@@ -20,6 +20,7 @@ O Plugin Restaure reúne algoritmos de geoprocessamento na **Caixa de Ferramenta
 - [Detalhes das ferramentas](#detalhes-das-ferramentas)
   - [Gerador de APP](#gerador-de-app)
   - [Gerador de Nascentes](#gerador-de-nascentes)
+  - [ODS PRO](#ods-pro)
 - [Fluxo de trabalho sugerido](#fluxo-de-trabalho-sugerido)
 - [Aviso importante](#aviso-importante)
 - [Autores e contato](#autores-e-contato)
@@ -32,11 +33,17 @@ O Plugin Restaure reúne algoritmos de geoprocessamento na **Caixa de Ferramenta
 
 | Ferramenta | Finalidade | Localização na Caixa de Ferramentas |
 |---|---|---|
+<<<<<<< HEAD
 | [Gerador de Nascentes](#gerador-de-nascentes) | Identifica possíveis nascentes a partir de redes de drenagem e aponta suspeitas de desconexão e possíveis fozes. | Restaure → 2. Regularização Ambiental → Gerador de nascentes |
 | [Gerador de APP](#gerador-de-app) | Delimita Áreas de Preservação Permanente (APP) e analisa classes ambientais por lote. | Restaure → 2. Regularização Ambiental → Gerador de APP |
 | ODS PRO | Gera as planilhas ODS do SIGEF a partir das camadas parcela, vértice e limite do GeoDataBase, parcela a parcela ou em lote (requer LibreOffice). | Restaure → 1. Georreferenciamento → ODS PRO |
 | [Geodatabase SIGEF - Importar dados do Geoportal](#geodatabase-sigef---importar-dados-do-geoportal) | Importa parcelas do SIGEF pelo Geoportal do INCRA (por código ou por área), gera os limites com confrontantes e importa planilhas ODS. | Restaure → 1. Georreferenciamento → Geodatabase SIGEF - Importar dados do Geoportal |
 | [Painel de medidas ao vivo](#painel-de-medidas-ao-vivo) | Caixinha sobre o mapa com área (ha) e perímetro (km) em tempo real, no SRC escolhido e no SGL (como o SIGEF), com a diferença. | Restaure → 3. Ferramentas úteis → Painel de medidas ao vivo |
+=======
+| [Gerador de Nascentes](#gerador-de-nascentes) | Identifica possíveis nascentes a partir de redes de drenagem e aponta suspeitas de desconexão e possíveis fozes. | Restaure → Regularização Ambiental → Gerador de nascentes |
+| [Gerador de APP](#gerador-de-app) | Delimita Áreas de Preservação Permanente (APP) e analisa classes ambientais por lote. | Restaure → Regularização Ambiental → Gerador de APP |
+| [ODS PRO](#ods-pro) | Gera as planilhas ODS do SIGEF a partir das camadas parcela, vértice e limite do GeoDataBase, parcela a parcela ou em lote (requer LibreOffice). | Restaure → Georreferenciamento → ODS PRO |
+>>>>>>> bf3df9f9a992c6a17043f6e1b7467b4e36f3b24f
 
 > Novas ferramentas serão acrescentadas a esta tabela conforme forem publicadas.
 
@@ -64,6 +71,38 @@ Os dados de entrada específicos de cada ferramenta estão descritos nas seçõe
 ---
 
 ## Detalhes das ferramentas
+
+### ODS PRO
+
+Ferramenta para processamento de dados de projetos de georreferenciamento, baseada no **Manual Técnico para Georreferenciamento de Imóveis Rurais (MTGIR)** atualizado do INCRA. Automatiza a criação da planilha ODS do SIGEF, integrando-se diretamente ao QGIS e utilizando macros para preencher a planilha com os dados extraídos das camadas de vértice, limite e parcela.
+
+**Funcionalidades**
+
+- Seleção de lotes para gerar as ODS em grande volume.
+- Denominação da ODS no padrão SIGEF.
+- Definição de partes em lotes multiparte.
+- Correção de altitudes já contidas no SIGEF, de lotes confrontantes.
+
+**Dados de entrada**
+
+| Dado | Obrigatório | Observação |
+|---|---|---|
+| Modo de geração | Sim | **Lote a lote** (apenas a parcela selecionada) ou **Em lote** (todas as parcelas, a partir da selecionada: após o primeiro lote, o sistema assume o controle e gera as demais ODS em sequência de numeração). |
+| Camada parcela | Sim | Polígono do imóvel levantado (GeoDataBase). |
+| Camada vértice | Sim | Pontos de mudança de direção e interseções da linha limítrofe (GeoDataBase). |
+| Camada limite | Sim | Linhas que definem as confrontações (GeoDataBase). |
+| Código do técnico executante | Opcional | Mantém as casas decimais dos vértices de certificações vizinhas conforme constam no SIGEF. |
+| Pasta de saída das ODS | Opcional | Cada ODS é salva conforme a coluna `denominacao`, corrigida conforme as exigências do SIGEF. |
+
+**Resultados**
+
+Planilhas ODS do SIGEF, uma por lote, nomeadas no padrão SIGEF.
+
+**Observações**
+
+Requer **LibreOffice**. Para os atributos de cada camada do GeoDataBase, o passo a passo e as demais opções, veja a página [ODS PRO](https://github.com/ONG-Restaure/restaure/wiki/ODS-PRO) na wiki.
+
+---
 
 ### Gerador de APP
 
@@ -193,9 +232,11 @@ O Plugin Restaure é desenvolvido por:
 
 | Autor | LinkedIn |
 |---|---|
-| **Dra. Ranieli dos Anjos de Souza** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ranieli-dos-anjos-de-souza-5a291b32/) |
+| **Dra. Ranieli dos Anjos** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ranieli-dos-anjos-de-souza-5a291b32/) |
 | **Dr. Valdir Moura** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/valdir-moura-181a7b14) |
+| **Carolina Potratz** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/carolina-potratz-giraldello) |
 | **Fernanda Gessner** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)]("") |
+| **Leandro França** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/geoleandrofranca/) |
 | **Maik Rodrigues** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/maikrodriguess/) |
 | **Márcio Guerra** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/m%C3%A1rcio-guerra-69b8833b3) |
 | **Mychelle Novais** | [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mychelle-novais/) |
