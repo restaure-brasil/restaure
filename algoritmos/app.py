@@ -502,7 +502,7 @@ class GerarAPP(QgsProcessingAlgorithm):
         return "Gerador de APP"
 
     def group(self):
-        return "Regularização Ambiental"
+        return "2. Regularização Ambiental"
 
     def groupId(self):
         return "regularizacao_ambiental"

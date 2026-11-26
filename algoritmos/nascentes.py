@@ -49,7 +49,7 @@ class GerarNascentes(QgsProcessingAlgorithm):
         return "Gerador de nascentes"
 
     def group(self):
-        return "Regularização Ambiental"
+        return "2. Regularização Ambiental"
 
     def groupId(self):
         return "regularizacao_ambiental"

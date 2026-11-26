@@ -21,10 +21,14 @@ from qgis.core import (
 if hasattr(Qgis, "WkbType"):
     WKB_PONTO = Qgis.WkbType.Point
     WKB_MULTIPOLIGONO = Qgis.WkbType.MultiPolygon
+    GEOM_PONTO = Qgis.GeometryType.Point
+    GEOM_LINHA = Qgis.GeometryType.Line
     GEOM_POLIGONO = Qgis.GeometryType.Polygon
 else:
     WKB_PONTO = getattr(QgsWkbTypes, "Point")
     WKB_MULTIPOLIGONO = getattr(QgsWkbTypes, "MultiPolygon")
+    GEOM_PONTO = getattr(QgsWkbTypes, "PointGeometry")
+    GEOM_LINHA = getattr(QgsWkbTypes, "LineGeometry")
     GEOM_POLIGONO = getattr(QgsWkbTypes, "PolygonGeometry")
 
 # enums do Processing (movidos para Qgis.* no QGIS 3.36)
@@ -70,8 +74,19 @@ except AttributeError:
 # flag de algoritmo que roda na thread principal (Qgis.* no QGIS 3.36)
 if hasattr(Qgis, "ProcessingAlgorithmFlag"):
     SEM_THREAD = Qgis.ProcessingAlgorithmFlag.NoThreading
+    OCULTO_NO_MODELADOR = Qgis.ProcessingAlgorithmFlag.HideFromModeler
 else:
     SEM_THREAD = getattr(QgsProcessingAlgorithm, "FlagNoThreading")
+    OCULTO_NO_MODELADOR = getattr(QgsProcessingAlgorithm, "FlagHideFromModeler")
+
+# filtros de camada do QgsMapLayerComboBox (Qgis.LayerFilter: QGIS >= 3.34)
+if hasattr(Qgis, "LayerFilter"):
+    FILTRO_CAMADA_PONTO = Qgis.LayerFilter.PointLayer
+    FILTRO_CAMADA_POLIGONO = Qgis.LayerFilter.PolygonLayer
+else:
+    from qgis.core import QgsMapLayerProxyModel
+    FILTRO_CAMADA_PONTO = getattr(QgsMapLayerProxyModel, "PointLayer")
+    FILTRO_CAMADA_POLIGONO = getattr(QgsMapLayerProxyModel, "PolygonLayer")
 
 # níveis do QgsMessageLog
 try:

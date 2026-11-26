@@ -1685,7 +1685,7 @@ class OdsProGenerator(QgsProcessingAlgorithm):
         return 'ODS PRO'
 
     def group(self):
-        return 'Georreferenciamento'
+        return '1. Georreferenciamento'
 
     def groupId(self):
         return 'georreferenciamento'
