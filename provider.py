@@ -5,6 +5,7 @@ from qgis.core import QgsProcessingProvider
 from .algoritmos.nascentes import GerarNascentes
 from .algoritmos.app import GerarAPP
 from .algoritmos.ods_sigef import OdsProGenerator
+from .algoritmos.geoportal_sigef import ImportarGeoportalSigef
 from .algoritmos.medidas_ao_vivo import MedidasAoVivo
 
 
@@ -13,6 +14,7 @@ class RestaureProvider(QgsProcessingProvider):
         self.addAlgorithm(GerarNascentes())
         self.addAlgorithm(GerarAPP())
         self.addAlgorithm(OdsProGenerator())
+        self.addAlgorithm(ImportarGeoportalSigef())
         self.addAlgorithm(MedidasAoVivo())
 
     def id(self):

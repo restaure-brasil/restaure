@@ -4,12 +4,12 @@ qgisMinimumVersion=3.16
 qgisMaximumVersion=4.99
 description=Tools to streamline georeferencing and environmental compliance projects.
 version=1.2.0
-about=QGIS tools that streamline rural property georeferencing and environmental compliance projects in Brazil, in accordance with INCRA technical standards and the Brazilian Forest Code (Law No. 12,651/2012). Includes ODS PRO, which generates SIGEF ODS spreadsheets automatically from parcel, vertex and boundary layers (requires LibreOffice), and a live panel with area and perimeter (chosen CRS and SGL).
+about=QGIS tools that streamline rural property georeferencing and environmental compliance projects in Brazil, in accordance with INCRA technical standards and the Brazilian Forest Code (Law No. 12,651/2012). Includes ODS PRO, which generates SIGEF ODS spreadsheets automatically from parcel, vertex and boundary layers (requires LibreOffice), an importer of SIGEF parcels from the INCRA Geoportal, and a live panel with area and perimeter (chosen CRS and SGL).
 author=Dra. Ranieli dos Anjos de Souza, Dr. Valdir Moura, Maik Rodrigues, Márcio Guerra, and Mychelle Novais
 email=restaurear@gmail.com
 category=Analysis
 icon=docs/images/icon.png
-tags=area,perimeter,sgl,georeferencing,environmental compliance,incra,forest code,app,permanent preservation area,springs,hydrography,drainage,sigef,ods,spreadsheet
+tags=area,perimeter,sgl,georeferencing,environmental compliance,incra,forest code,app,permanent preservation area,springs,hydrography,drainage,sigef,ods,spreadsheet,geoportal,parcel
 hasProcessingProvider=yes
 experimental=False
 deprecated=False
@@ -18,6 +18,7 @@ repository=https://github.com/ONG-Restaure/restaure
 tracker=https://github.com/ONG-Restaure/restaure/issues
 homepage=https://github.com/ONG-Restaure/restaure/wiki
 changelog= 1.2.0 - New group Ferramentas úteis with the Painel de medidas ao vivo: shows area and perimeter in real time (chosen CRS and SGL)
+   New tool Geodatabase SIGEF (Georreferenciamento): imports SIGEF parcels from the INCRA Geoportal and SIGEF ODS spreadsheets
    Toolbox groups are now numbered (1, 2, 3)
  1.1.0 - New tool ODS PRO (Georeferencing group): generates SIGEF ODS spreadsheets from parcel, vertex and boundary layers, for one or thousands of parcels (requires LibreOffice)
  1.0.0 - First public release

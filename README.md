@@ -35,6 +35,7 @@ O Plugin Restaure reúne algoritmos de geoprocessamento na **Caixa de Ferramenta
 | [Gerador de Nascentes](#gerador-de-nascentes) | Identifica possíveis nascentes a partir de redes de drenagem e aponta suspeitas de desconexão e possíveis fozes. | Restaure → 2. Regularização Ambiental → Gerador de nascentes |
 | [Gerador de APP](#gerador-de-app) | Delimita Áreas de Preservação Permanente (APP) e analisa classes ambientais por lote. | Restaure → 2. Regularização Ambiental → Gerador de APP |
 | ODS PRO | Gera as planilhas ODS do SIGEF a partir das camadas parcela, vértice e limite do GeoDataBase, parcela a parcela ou em lote (requer LibreOffice). | Restaure → 1. Georreferenciamento → ODS PRO |
+| [Geodatabase SIGEF - Importar dados do Geoportal](#geodatabase-sigef---importar-dados-do-geoportal) | Importa parcelas do SIGEF pelo Geoportal do INCRA (por código ou por área), gera os limites com confrontantes e importa planilhas ODS. | Restaure → 1. Georreferenciamento → Geodatabase SIGEF - Importar dados do Geoportal |
 | [Painel de medidas ao vivo](#painel-de-medidas-ao-vivo) | Caixinha sobre o mapa com área (ha) e perímetro (km) em tempo real, no SRC escolhido e no SGL (como o SIGEF), com a diferença. | Restaure → 3. Ferramentas úteis → Painel de medidas ao vivo |
 
 > Novas ferramentas serão acrescentadas a esta tabela conforme forem publicadas.
@@ -125,6 +126,24 @@ Camadas de pontos com as nascentes identificadas, as extremidades que podem indi
 **Observações**
 
 As extremidades desconectadas da hidrografia **nem sempre representam nascentes reais**: também podem resultar de erros de digitalização, linhas incompletas ou rios cortados nos dados de entrada. Revise a camada de suspeitas e, quando utilizado, confira o resultado de possíveis fozes.
+
+---
+
+### Geodatabase SIGEF - Importar dados do Geoportal
+
+Janela que busca **parcelas certificadas do SIGEF** no Geoportal do INCRA e gera as camadas no projeto. Abre pela Caixa de Ferramentas (**1. Georreferenciamento**) ou por **Complementos → Restaure → Georreferenciamento**.
+
+**Funcionalidades**
+
+- Busca por **códigos** (cole links, textos ou planilhas: os códigos são encontrados sozinhos) ou por **área de referência** (camada de polígonos ou área visível do mapa).
+- Gera **parcelas** e **limites com confrontantes**; trechos sem vizinha cadastrada ficam como "Limite a definir".
+- **Base salva**: cada consulta fica guardada no perfil do QGIS e é usada quando o Geoportal estiver fora do ar. Pode ser baixada para uma região ou para o Brasil inteiro.
+- Importa **planilhas ODS do SIGEF** (uma, várias ou ZIPs) em vértices, limites e parcelas, apontando vértices com coordenadas diferentes entre planilhas.
+- Salva opcionalmente em **GeoPackage** e já aplica estilo e a ação "Abrir no SIGEF".
+
+**Observações**
+
+A busca usa o serviço público do Geoportal do INCRA e precisa de internet; sem conexão, vale a base salva, que só tem as parcelas já consultadas ou baixadas antes.
 
 ---
 
