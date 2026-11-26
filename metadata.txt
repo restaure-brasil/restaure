@@ -14,9 +14,9 @@ hasProcessingProvider=yes
 experimental=False
 deprecated=False
 
-repository=https://github.com/ONG-Restaure/restaure
-tracker=https://github.com/ONG-Restaure/restaure/issues
-homepage=https://github.com/ONG-Restaure/restaure/wiki
+repository=https://github.com/Restaure-brasil/restaure
+tracker=https://github.com/Restaure-brasil/restaure/issues
+homepage=https://github.com/Restaure-brasil/restaure/wiki
 changelog= 1.2.0 - New group Ferramentas úteis with the Painel de medidas ao vivo: shows area and perimeter in real time (chosen CRS and SGL)
    New tool Geodatabase SIGEF (Georreferenciamento): imports SIGEF parcels from the INCRA Geoportal and SIGEF ODS spreadsheets
    Toolbox groups are now numbered (1, 2, 3)
