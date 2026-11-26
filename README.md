@@ -35,6 +35,7 @@ O Plugin Restaure reúne algoritmos de geoprocessamento na **Caixa de Ferramenta
 | [Gerador de Nascentes](#gerador-de-nascentes) | Identifica possíveis nascentes a partir de redes de drenagem e aponta suspeitas de desconexão e possíveis fozes. | Restaure → 2. Regularização Ambiental → Gerador de nascentes |
 | [Gerador de APP](#gerador-de-app) | Delimita Áreas de Preservação Permanente (APP) e analisa classes ambientais por lote. | Restaure → 2. Regularização Ambiental → Gerador de APP |
 | ODS PRO | Gera as planilhas ODS do SIGEF a partir das camadas parcela, vértice e limite do GeoDataBase, parcela a parcela ou em lote (requer LibreOffice). | Restaure → 1. Georreferenciamento → ODS PRO |
+| [Painel de medidas ao vivo](#painel-de-medidas-ao-vivo) | Caixinha sobre o mapa com área (ha) e perímetro (km) em tempo real, no SRC escolhido e no SGL (como o SIGEF), com a diferença. | Restaure → 3. Ferramentas úteis → Painel de medidas ao vivo |
 
 > Novas ferramentas serão acrescentadas a esta tabela conforme forem publicadas.
 
@@ -44,7 +45,7 @@ O Plugin Restaure reúne algoritmos de geoprocessamento na **Caixa de Ferramenta
 
 1. No QGIS, abra **Complementos → Gerenciar e Instalar Complementos**, procure por **Restaure** e clique em **Instalar**.
 2. Abra a **Caixa de Ferramentas de Processamento** (`Ctrl+Alt+T`).
-3. Localize o provedor **Restaure**, abra o grupo **Regularização Ambiental** e escolha a ferramenta desejada
+3. Localize o provedor **Restaure**, abra o grupo desejado (**1. Georreferenciamento**, **2. Regularização Ambiental** ou **3. Ferramentas úteis**) e escolha a ferramenta
 4. Selecione as camadas de entrada, ajuste os parâmetros e execute o algoritmo.
 
 > Na primeira execução de algumas ferramentas (como o Gerador de APP) pode ser necessária conexão com a internet para obter recursos auxiliares que ainda não estejam disponíveis localmente.
@@ -124,6 +125,27 @@ Camadas de pontos com as nascentes identificadas, as extremidades que podem indi
 **Observações**
 
 As extremidades desconectadas da hidrografia **nem sempre representam nascentes reais**: também podem resultar de erros de digitalização, linhas incompletas ou rios cortados nos dados de entrada. Revise a camada de suspeitas e, quando utilizado, confira o resultado de possíveis fozes.
+
+---
+
+### Painel de medidas ao vivo
+
+Caixinha flutuante sobre o mapa que mostra, em tempo real, a **área (ha)** e o **perímetro (km)** no SRC escolhido e no **SGL – Sistema Geodésico Local** (como o SIGEF calcula), com a diferença entre os dois. Abre pela Caixa de Ferramentas (**3. Ferramentas úteis**) ou por **Complementos → Restaure → Ferramentas úteis**.
+
+**Funcionalidades**
+
+- Escolhe sozinha o que medir: com uma camada em edição, as feições criadas ou alteradas nessa edição; com seleção, a seleção; sem nada disso, o total da camada ativa.
+- SRC à escolha: UTM com fuso automático, SRC da camada ou qualquer outro.
+- SGL com origem na média das coordenadas geocêntricas dos vértices, como no Manual Técnico de Posicionamento do INCRA.
+- Avisa uma vez por sessão as camadas sem altitude (z) e oferece preenchê-las.
+
+**Altitude (z) dos vértices**
+
+Ordem usada no SGL: Z da geometria → camada de vértices → média da feição → altitude fixa → 0. Na camada de vértices, a **coluna `z` vale mais** que o Z da geometria, e o ponto precisa estar a até **1 cm** do vértice. Z vazio ou 0 conta como sem altitude.
+
+**Observações**
+
+Nada é salvo automaticamente: quando o painel preenche o z, as camadas ficam em edição para conferência. Clique com o botão direito na caixinha para escolher o SRC, a camada de vértices, a altitude fixa, copiar os valores ou fechar.
 
 ---
 
